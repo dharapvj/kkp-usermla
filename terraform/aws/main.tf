@@ -221,7 +221,7 @@ resource "aws_elb" "control_plane" {
 #################################### SSH KEY ###################################
 resource "aws_key_pair" "deployer" {
   key_name   = "${var.cluster_name}-deployer-key"
-  public_key = file(var.ssh_public_key_file)
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDgDCRNOwD65/fmOILbTvtHCwWZma8t1QIaYcu0At1Pnvb8aCtsfB37gj2LrBM3fZ5iyDMjQpnOdtSFTjBFU5ttWAaOG4M8iZAXluljdfpDn6vO9NOuZhwDmghPQAwopcMeb/2HpTgdTYOlblofrulo0nExcasrmHaAfINOEmBCHqXPVQA6CZUG7KcKXu6gM9THDSYvYDnRVf7uzu3mOmpYbPIIhGQXUbJ7LnNsBhoJsCR5Y9HUDU+P0epyL47E1Cap5iLf4QaTNsKPgwY4BwE8zaca87iV8KsmRsP92oX/HyqMAifigBomIGXl1R0nPOZKYEYNRwgjO9PQdasF+NyTj7fmVwp2aKmn5UEw8+nQXZwk33oWCYS9bUsAqLKVdReMEPlr4ZgWKKupRhkW4trVpDvg86v2fwkqUFAYFPij1OW3JOfO5Kj4R4UTHwlxb51RBuOOKzgdAXdx2RaG4YbKWaOyzL59lde8Mqh7Qd43htUzbqNSTvpcHckgoYkZ1npTUsD5BQDIZcopP6OpwW4k0cVqQmdojhSHjBsaNSebf765szDoq3NOGdUE3rAkEykM5eteCc6iG6qe6HNFwgeIOZioAB0hiB5YzGjHORc95sidM5LX0OWbqP+NhVqua5xFjBIQE0TUaxoqXa4mJrujZPyprskAyiKFP4ykg8tt4w== admin@kubermatic.com"
 }
 
 ##################################### IAM ######################################
