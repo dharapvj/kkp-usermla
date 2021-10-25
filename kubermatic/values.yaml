@@ -141,7 +141,7 @@ certManager:
         letsencrypt-staging:
             email: vijay@kubermatic.com
 minio:
-    storeSize: 50Gi
+    storeSize: 125Gi
     storageClass: kubermatic-backup
     credentials:
         accessKey: ENC[AES256_GCM,data:CZvKDw0wk4Dy5e1J95aSKADvy30qtbT/vxbbtEH17DY=,iv:LpFoViCQBGk0fzT62ADYlKQdIrKODsHBfTiTVhr8+6E=,tag:G3a4GdJSkww6IAoeVaCD9Q==,type:str]
