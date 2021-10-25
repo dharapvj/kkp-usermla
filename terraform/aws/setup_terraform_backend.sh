@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-readonly GENERATED_BUCKET_SUFFIX="x_1sux0dwomcxu3w"
+readonly GENERATED_BUCKET_SUFFIX="x1sux0dwomcxu3w"
 readonly TF_STATE_BUCKET_NAME="tf-state-kkp-$GENERATED_BUCKET_SUFFIX"
 
 echo "Setting up S3 bucket ${TF_STATE_BUCKET_NAME} for storing Terraform state."
