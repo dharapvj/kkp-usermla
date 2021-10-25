@@ -39,11 +39,16 @@ set +x
 
 printf "Terraform state bucket name: %s\n" "${TF_STATE_BUCKET_NAME}"
 
-aws dynamodb create-table \
-  --table-name terraform-state-kkp-locks \
-  --attribute-definitions AttributeName=LockID,AttributeType=S \
-  --key-schema AttributeName=LockID,KeyType=HASH \
-  --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+if aws dynamodb describe-table --table-name terraform-state-kkp-locks --no-cli-pager 2>/dev/null
+then
+  echo "dynamodb table terraform-state-kkp-locks already exist"
+else
+  aws dynamodb create-table \
+    --table-name terraform-state-kkp-locks \
+    --attribute-definitions AttributeName=LockID,AttributeType=S \
+    --key-schema AttributeName=LockID,KeyType=HASH \
+    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 
+fi
 
 # put empty file in s3 bucket for readiness check in pipeline
 temp_file=$(mktemp)
