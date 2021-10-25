@@ -1,0 +1,42 @@
+apiVersion: operator.kubermatic.io/v1alpha1
+kind: KubermaticConfiguration
+metadata:
+    name: kubermatic
+    namespace: kubermatic
+spec:
+    ingress:
+        domain: usermla.lab.kubermatic.io
+        certificateIssuer:
+            apiGroup: null
+            kind: ClusterIssuer
+            name: letsencrypt-prod
+        className: nginx
+    auth:
+        clientID: kubermatic
+        issuerClientID: kubermaticIssuer
+        skipTokenIssuerTLSVerify: true
+        tokenIssuer: https://usermla.lab.kubermatic.io/dex
+        issuerClientSecret: ENC[AES256_GCM,data:KchItEOowmOYANQi/C7teFeYaIU3/B0T3LswKeYEhO51Z14Q6CE/7lHvIA==,iv:RDKYYDbIJ1RS59tduft1v+ym0LxvqnJg2fHoO2xIwvA=,tag:xOkH+qfNa7+hyEqowEq92g==,type:str]
+        issuerCookieKey: ENC[AES256_GCM,data:B4cLFO/qHvaelrfH212gGK0xQJvlbdjzkJuP2Wf/MF0=,iv:7rrEpKL3Lkxlo9IH4viQmJijuGjnDmBoAbOWU9TyqS8=,tag:c9uREvFpHjdRdjeir+Kgdg==,type:str]
+        serviceAccountKey: ENC[AES256_GCM,data:JkC0uv8ys93xKghoWz2gF7RuFAonfvnXk+FR1H1P1Pw=,iv:CrPcelGlEKEgDR110p9cI17r4LF60zpc1YO1lL8JHiY=,tag:2VYaxPm3o4aHxJEryiW5tg==,type:str]
+        issuerRedirectURL: https://usermla.lab.kubermatic.io/api/v1/kubeconfig
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age100v366ra794gzdeqy708sct8aa3f4ln6a5vgjffcs6f26mh04u0q07tqwu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKNzhvS0NMWEYzVmJGeEgr
+            aUhzYVhvaXovZzVzM0Z4SUFvTzlEVm11bmxjCktVNU5HZElzQVJUaVdyRVp2SjNy
+            TEljRytHWExBQzNINS8yd25LQWN0dWcKLS0tIEhySDI5M3k4YzgvZWp3QUxWVzJx
+            dkpGVG40bFRFTzNVQUNLbzQrT2xJdmMKONW44IjRZv1F8ydFXCzsSWvEaIuVfiYy
+            nsIaluAZHHLcLrIE+DvAMw8ap9n9YyntLcsaQrALgJIOcqRf/LVfgg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-10-25T04:08:06Z"
+    mac: ENC[AES256_GCM,data:mM6BVFomG+NMWgjZobKxJ34O/YxlaitcMD6qk8I0K/GWjal4+bMNxOJQT6lXXFeaTsVZTuN/xYVgbLLcn7oKzC4v3Te2ZFEtw3tOBzOiwk1sHK6CTctmcvdT0mqdwRvUXtoFMuaZkGLBoNeUsCGiR1iaQX/PGmuM1dOkZ5WSidw=,iv:/gYbQ9Y3TIJJPq7xJjKLNKr/aRuWis6Sfq94hOxYqLk=,tag:3ISqWMrmwGCpaGS88sZzeQ==,type:str]
+    pgp: []
+    encrypted_regex: (issuerClientSecret|issuerCookieKey|serviceAccountKey)
+    version: 3.7.1

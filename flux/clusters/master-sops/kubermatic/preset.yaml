@@ -1,0 +1,30 @@
+apiVersion: kubermatic.k8s.io/v1
+kind: Preset
+metadata:
+    name: kkp
+    namespace: kubermatic
+spec:
+    aws:
+        accessKeyID: ENC[AES256_GCM,data:b7R+zQAJwXH/tw6qlkesrZBzSuE=,iv:5rBvCuO0lsE3GB0vOvjX5Ey/trPOHkeH/jlJfqmmEUs=,tag:T0PIyrF9fxouwcQzql4CgA==,type:str]
+        secretAccessKey: ENC[AES256_GCM,data:2UQfAA4jiPIpt/Tf36/5WL/+6JxaJVd2Tsn1yI7kL58/v8waSSqrfQ==,iv:L9e4Wi0wXM+t4IUy3KNmwWTcDsN54VAEFyerY4wpvbg=,tag:poP9er3l0+B/NuHtiVZo4g==,type:str]
+        vpcId: vpc-a4ac64ce
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age100v366ra794gzdeqy708sct8aa3f4ln6a5vgjffcs6f26mh04u0q07tqwu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBNSkhubUdvYkJWUXlPSy9E
+            eXA0aEMyZDdLVjk5RitCUTI1ZUsrRHlmSEIwCkx3eG9pSi91NHordEY3ZEs3Z0sx
+            Z2VscnVYKytGTDRNclRBME5keXo0MjQKLS0tIFJoZHBpaHNKWXpVRHVRMjY0bklj
+            TjdzUW1PUDVSSHNDYmFyZHNCcUh6L28KtSkvTAXtPR8fpAhay4zNbNvGmGOPNwGR
+            lEdpxIIMG/r6ewkl5E+WFOQqlS4S/a21lohIjWcAvK3rqL3SDXBGmA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-10-25T04:08:06Z"
+    mac: ENC[AES256_GCM,data:QPtNpfBw9yqJsppn0G+WrKt2WgQHc5fL3Rysy4LKv9zfflKOYuTtNVDdHgjLIDyl76YbabLd23oPNN26otPoku4bY5ssL6BAg/wyn0mT8AUJnaCZHvp882ZdIU4HHJ1v5/OiG+BZsaUQWSMxbhlDxtMWsDC5Ti+spAI6OVnAlww=,iv:BxsxCCejqlNre59wT/lq6+m5FgMgZyl5p5ULCMyl4Iw=,tag:xs7+D0fL3qwRGb0FzMB7wA==,type:str]
+    pgp: []
+    encrypted_regex: (accessKeyID|secretAccessKey|username|password)
+    version: 3.7.1

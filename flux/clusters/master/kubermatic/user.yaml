@@ -1,0 +1,9 @@
+apiVersion: kubermatic.k8s.io/v1
+kind: User
+metadata:
+  name: drhov0pyghv6heo0dq35tqk6w2wo27lz
+spec:
+  admin: true
+  email: vijay@kubermatic.com
+  id: vxIdgrspCaNbiTJb9iBLF1eSWzamCvUk
+  name: vijay@kubermatic.com

@@ -1,0 +1,8 @@
+apiVersion: kubermatic.k8s.io/v1
+kind: UserProjectBinding
+metadata:
+  name: omvips9rtr
+spec:
+  group: owners-46fbmawinb
+  projectId: 46fbmawinb
+  userEmail: vijay@kubermatic.com

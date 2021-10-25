@@ -1,0 +1,11 @@
+apiVersion: kubeone.io/v1beta1
+kind: KubeOneCluster
+versions:
+  kubernetes: v1.22.2
+cloudProvider:
+  aws: {}
+containerRuntime:
+  containerd: {}
+addons:
+  enable: true
+  path: "./addons"
