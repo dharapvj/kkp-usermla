@@ -1,0 +1,42 @@
+service:
+  type: ClusterIP
+
+replicas: 1
+
+admin:
+  existingSecret: grafana
+  userKey: admin-user
+  passwordKey: admin-password
+
+persistence:
+  type: statefulset
+  enabled: true
+  storageClassName: "kubermatic-fast"
+
+grafana.ini:
+  auth.proxy:
+    enabled: true
+    header_name: "X-Forwarded-Email"
+    header_property: "username"
+    auto_sign_up: "true"
+
+# Uncomment the following lines to enable alerting feature (alpha)
+#  plugins:
+#    enable_alpha: true
+#  feature_toggles:
+#    enable: ngalert
+
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'default'
+      folder: ''
+      org_id: 1
+      type: file
+      disableDeletion: false
+      options:
+        path: /var/lib/grafana/dashboards/default
+
+dashboards:
+  default:

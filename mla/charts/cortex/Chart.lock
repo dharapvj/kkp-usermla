@@ -1,0 +1,24 @@
+dependencies:
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+- name: memcached
+  repository: file://subcharts/memcached
+  version: 5.5.1
+digest: sha256:f30b1d7d58bad09ad1fc571dafe7dc36eabb8a5fbbaefde6fb0afe632d9a7f34
+generated: "2021-06-21T13:07:08.186597+08:00"
