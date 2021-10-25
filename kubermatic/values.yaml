@@ -47,6 +47,16 @@ dex:
           secret: ENC[AES256_GCM,data:4G8MBvZp7a03sYCWCXczcA==,iv:m50B27+S9nh0DyzWZRUAbMwYREQ94x1bB/eyhyoZr6s=,tag:2Jz1l3b7+D1/YUUdPXH0vg==,type:str]
           RedirectURIs:
             - https://karma.usermla.lab.kubermatic.io/oauth/callback
+        - RedirectURIs:
+            - https://grafana-user.usermla.lab.kubermatic.io/oauth/callback
+          id: mla-grafana
+          name: mla-grafana
+          secret: ENC[AES256_GCM,data:hBJb7PmOKwcQgjxqg4di1w==,iv:ZLVUhBIRM/TOvuuMhY1TcwQGF94BiaTdgd6amyESums=,tag:uoWt6JDFpxyVAVtlXNka2g==,type:str]
+        - RedirectURIs:
+            - https://alertmanager-user.usermla.lab.kubermatic.io/oauth/callback
+          id: mla-alertmanager
+          name: mla-alertmanager
+          secret: ENC[AES256_GCM,data:TBtbRjNRWcViMXwaGVPAQw==,iv:40YU4Q4z4Rje70Ix4/8L5z2jqKLBU7PK1/sn2ewiXIk=,tag:dUZwhuoLrVwRcPAH2BrYrg==,type:str]
 alertmanager:
     host: alertmanager.usermla.lab.kubermatic.io
 grafana:
@@ -165,8 +175,8 @@ sops:
             aUlIUHNDL2ZPTjZiZzFRSWllZUlJU1UKsvq+TIRZllQgXbM80aZ5v3X9QZT2fJdz
             uJ6I5Xr27Hq83qg612bUnus2IvB/w3bLS8qL1m8qKdvFihgRrEhNcQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-10-25T08:42:35Z"
-    mac: ENC[AES256_GCM,data:+WaXKdtTlFPvv155TpNM07QXoE0eGEn8r+0sVBzKgrJXwsNhxG8B5h2FzxwyxtQdgkQBGUK4E5NwxM0Hj+BSjehBLr+xkpQjeIdpYb98Y/PQGNUjdvh76fylp3+H8WNULmuezcYt/Hi4ltAU9Ws3+Wq/oBoEONh8pUr9eQOyvf8=,iv:vykdtxhszs02hMQ8YCG/ncLqgVp15sTV608sgKu6N1k=,tag:0tA1TozJqV6OlJwk7D/cQw==,type:str]
+    lastmodified: "2021-10-25T09:29:39Z"
+    mac: ENC[AES256_GCM,data:WvL4hlYTv+eeSulRGBy74ymW/uFBffzV/9FaF5UHfQySGGhfVuE4RUB/Et4yIivrlzenWI1bb+suo0QAU5plAcCbYwHzDF8F6RUOj1Qr6R92X7tYOTLPdMd7Fp8xYvduS1PHRMmj2Y/DrHv5jZjS+bY6frEJsRQuW1appDEgjek=,iv:qLs3ey51T+IOBP3IugHEIbnXtdul7NEfuxUHACeROME=,tag:AsIEHw8sxzljyYhzQsLU0g==,type:str]
     pgp: []
     encrypted_regex: (hash|secret|password|encryption_key|accessKey)
     version: 3.7.1

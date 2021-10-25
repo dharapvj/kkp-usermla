@@ -1,0 +1,63 @@
+iap:
+    oidc_issuer_url: https://usermla.lab.kubermatic.io/dex
+    deployments:
+        grafana:
+            name: grafana
+            replicas: 1
+            client_id: mla-grafana
+            client_secret: ENC[AES256_GCM,data:vVb4zljOpAfgYEp13LYngA==,iv:H69cA3j3XYab5XjMrIJecU/EzMc2qH/jNz4yBDBkJDs=,tag:yAQb/b0EpxOwEjb3Gff88w==,type:str]
+            encryption_key: ENC[AES256_GCM,data:RCm70E4jSfpD5Lrs7ivGfw==,iv:Lti/SA+UDI+BHX1/KqP4JTqL26iFTVmIC8PEdUe5TF4=,tag:9ddOz+rOS+mQgpIE8QFVWQ==,type:str]
+            config:
+                scope: groups openid email
+                email_domains:
+                    - '*'
+                ## do not route health endpoint through the proxy
+                skip_auth_regex:
+                    - /api/health
+                ## auto-register users based on their email address
+                ## Grafana is configured to look for the X-Forwarded-Email header
+                pass_user_headers: true
+            upstream_service: grafana.mla.svc.cluster.local
+            upstream_port: 80
+            ingress:
+                host: grafana-user.usermla.lab.kubermatic.io
+        alertmanager:
+            name: alertmanager
+            replicas: 1
+            client_id: mla-alertmanager
+            client_secret: ENC[AES256_GCM,data:LF/IQdz6OXLLTLXInYnx0A==,iv:uhDzC8M11KdekVP1q5bhbu471Zbb20OhZF/R3RK7ZdM=,tag:dmnNSPli7ia9nI/0O3QUtg==,type:str]
+            encryption_key: ENC[AES256_GCM,data:Q6kIDobx4qtAw5x6YQg2Ow==,iv:LngKqBMUr9vrDQsZM7voqptfnJabYozzAHZ2KaDdXCI=,tag:KbvXaSvMLVTGRSB6FHSJhA==,type:str]
+            config:
+                scope: groups openid email
+                email_domains:
+                    - '*'
+                ## do not route health endpoint through the proxy
+                skip_auth_regex:
+                    - /api/health
+                ## auto-register users based on their email address
+                ## Grafana is configured to look for the X-Forwarded-Email header
+                pass_user_headers: true
+            upstream_service: alertmanager-proxy.mla.svc.cluster.local
+            upstream_port: 8080
+            ingress:
+                host: alertmanager-user.usermla.lab.kubermatic.io
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age100v366ra794gzdeqy708sct8aa3f4ln6a5vgjffcs6f26mh04u0q07tqwu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKNDVaSW1OVTQ2R2I2WXJX
+            Mi96akduakI4Vm5aZXJSaDdzbzZjN3dzM0ZjCkg0Mkxzb0dwdjhnaHpNQzdTQlVM
+            RVJscktRZWw3S0IvSlhxc0dGL0xXZFEKLS0tIHNud25YVWhpYVFCcHJzQlh3Y3ZX
+            MkVjWFJzVWt0VzQ2QWsvcGptRHYrdFEKfstFobW6hKzuFJd+j4ysHUfpJGeU5UAb
+            BjC45jgbf9EZIEgIFJYnbZXu0QKFfI709YwXx5hpiEAsHLcvputyRw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-10-25T09:44:54Z"
+    mac: ENC[AES256_GCM,data:eblcQa75DaCJ7i2Jda1+IP1A2inVUcnRmNjvK9ZdKbxMHqxv7mgZCjo2or3ZLev7Zrxcbs+gxiOpbGMzAJgndCfVfDiK88lR/uXCCcGIY0hS0op7Y9PVdkwCAvZywW2VSn2+eg3xCy0O6CjRQYZMI4JSq/mV4ShgBvxGFQqHTyI=,iv:MXj6H//v6GVP+VZCxozqP7RTe9WmxbmfN8WJ6eoVDAo=,tag:jKXvpa7AVLjVtJWoY8qDMg==,type:str]
+    pgp: []
+    encrypted_regex: (client_secret|encryption_key)
+    version: 3.7.1
