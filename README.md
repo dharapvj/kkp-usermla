@@ -60,6 +60,7 @@ git remote add origin git@github.com:<GITHUB_OWNER>/<GITHUB_REPOSITORY>
 git push -u origin main
 ```
 
+
 ### Validation
 Check the steps of the GitHub Actions after first merge to `main` branch and enjoy the full deployment of KKP at the end!
 
