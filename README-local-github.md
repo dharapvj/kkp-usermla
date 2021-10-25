@@ -61,7 +61,7 @@ cd ../..
 ```bash
 cd terraform/aws
 terraform init \
-  -backend-config="bucket=tf-state-kkp-x_1sux0dwomcxu3w" \
+  -backend-config="bucket=tf-state-kkp-x1sux0dwomcxu3w" \
   -backend-config="region=eu-central-1"
 terraform apply
 terraform output -json > output.json
