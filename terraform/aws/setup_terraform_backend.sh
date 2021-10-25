@@ -9,25 +9,31 @@ echo "Setting up S3 bucket ${TF_STATE_BUCKET_NAME} for storing Terraform state."
 
 set -x
 
-# Create the bucket
-aws s3api create-bucket \
-  --bucket "${TF_STATE_BUCKET_NAME}" \
-  --create-bucket-configuration LocationConstraint=eu-central-1
+if aws s3api head-bucket --bucket "${TF_STATE_BUCKET_NAME}" 2>/dev/null;
+then
+  echo "Bucket ${TF_STATE_BUCKET_NAME} already exist"
+else
+  echo "Creating S3 bucket named ${TF_STATE_BUCKET_NAME} for managing terraform state"
+  # Create the bucket
+  aws s3api create-bucket \
+    --bucket "${TF_STATE_BUCKET_NAME}" \
+    --create-bucket-configuration LocationConstraint=eu-central-1 || true
 
-# Enable AES-256 encryption
-aws s3api put-bucket-encryption \
-  --bucket "${TF_STATE_BUCKET_NAME}" \
-  --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
+  # Enable AES-256 encryption
+  aws s3api put-bucket-encryption \
+    --bucket "${TF_STATE_BUCKET_NAME}" \
+    --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
 
-# Enable versioning
-aws s3api put-bucket-versioning \
-  --bucket "${TF_STATE_BUCKET_NAME}" \
-  --versioning-configuration Status=Enabled
+  # Enable versioning
+  aws s3api put-bucket-versioning \
+    --bucket "${TF_STATE_BUCKET_NAME}" \
+    --versioning-configuration Status=Enabled
 
-# Disable public access
-aws s3api put-public-access-block \
-  --bucket "${TF_STATE_BUCKET_NAME}" \
-  --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+  # Disable public access
+  aws s3api put-public-access-block \
+    --bucket "${TF_STATE_BUCKET_NAME}" \
+    --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+fi
 
 set +x
 
