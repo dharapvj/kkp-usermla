@@ -20,7 +20,7 @@ iap:
             upstream_service: grafana.mla.svc.cluster.local
             upstream_port: 80
             ingress:
-                host: grafana-user.usermla.lab.kubermatic.io
+                host: grafana-user.kubermatic.usermla.lab.kubermatic.io
         alertmanager:
             name: alertmanager
             replicas: 1
@@ -40,4 +40,4 @@ iap:
             upstream_service: alertmanager-proxy.mla.svc.cluster.local
             upstream_port: 8080
             ingress:
-                host: alertmanager-user.usermla.lab.kubermatic.io
+                host: alertmanager-user.kubermatic.usermla.lab.kubermatic.io

@@ -47,16 +47,16 @@ dex:
           secret: ENC[AES256_GCM,data:4G8MBvZp7a03sYCWCXczcA==,iv:m50B27+S9nh0DyzWZRUAbMwYREQ94x1bB/eyhyoZr6s=,tag:2Jz1l3b7+D1/YUUdPXH0vg==,type:str]
           RedirectURIs:
             - https://karma.usermla.lab.kubermatic.io/oauth/callback
-        - RedirectURIs:
-            - https://grafana-user.usermla.lab.kubermatic.io/oauth/callback
-          id: mla-grafana
+        - id: mla-grafana
           name: mla-grafana
           secret: ENC[AES256_GCM,data:hBJb7PmOKwcQgjxqg4di1w==,iv:ZLVUhBIRM/TOvuuMhY1TcwQGF94BiaTdgd6amyESums=,tag:uoWt6JDFpxyVAVtlXNka2g==,type:str]
-        - RedirectURIs:
-            - https://alertmanager-user.usermla.lab.kubermatic.io/oauth/callback
-          id: mla-alertmanager
+          RedirectURIs:
+            - https://grafana-user.kubermatic.usermla.lab.kubermatic.io/oauth/callback
+        - id: mla-alertmanager
           name: mla-alertmanager
           secret: ENC[AES256_GCM,data:TBtbRjNRWcViMXwaGVPAQw==,iv:40YU4Q4z4Rje70Ix4/8L5z2jqKLBU7PK1/sn2ewiXIk=,tag:dUZwhuoLrVwRcPAH2BrYrg==,type:str]
+          RedirectURIs:
+            - https://alertmanager-user.kubermatic.usermla.lab.kubermatic.io/oauth/callback
 alertmanager:
     host: alertmanager.usermla.lab.kubermatic.io
 grafana:
@@ -175,8 +175,8 @@ sops:
             aUlIUHNDL2ZPTjZiZzFRSWllZUlJU1UKsvq+TIRZllQgXbM80aZ5v3X9QZT2fJdz
             uJ6I5Xr27Hq83qg612bUnus2IvB/w3bLS8qL1m8qKdvFihgRrEhNcQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-10-25T09:29:39Z"
-    mac: ENC[AES256_GCM,data:WvL4hlYTv+eeSulRGBy74ymW/uFBffzV/9FaF5UHfQySGGhfVuE4RUB/Et4yIivrlzenWI1bb+suo0QAU5plAcCbYwHzDF8F6RUOj1Qr6R92X7tYOTLPdMd7Fp8xYvduS1PHRMmj2Y/DrHv5jZjS+bY6frEJsRQuW1appDEgjek=,iv:qLs3ey51T+IOBP3IugHEIbnXtdul7NEfuxUHACeROME=,tag:AsIEHw8sxzljyYhzQsLU0g==,type:str]
+    lastmodified: "2021-10-26T12:01:13Z"
+    mac: ENC[AES256_GCM,data:3Bq5rnMsxWoEdkyTJrc7oXGEnHzPcVSf/4vgsGYgYBqHqO/GEChOl+ltAi757ocly89EUqZnpLOYkedoHjdtFB8iZ6qBObyrA7utfV8K6yHuaAIJER8lDnSv0Nd8qMNoQkKjSflkqD6X+w3eXmqywIU6GCR+yNjIs/nwMvzuwEY=,iv:pzwz1CMFBRfkWOSNk9ykz4VbVU+/pa7uh/wWRbiUh0Y=,tag:dP1zOvCaN5NICYO+nNaBVQ==,type:str]
     pgp: []
     encrypted_regex: (hash|secret|password|encryption_key|accessKey)
     version: 3.7.1
