@@ -13,7 +13,7 @@ spec:
         aws:
           region: "eu-central-1"
   mla:
-    user_cluster_mla_enabled: false
+    user_cluster_mla_enabled: true
   kubeconfig:
     name: kubeconfig-cluster
     namespace: kubermatic
