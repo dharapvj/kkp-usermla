@@ -22,7 +22,7 @@ spec:
         issuerRedirectURL: https://usermla.lab.kubermatic.io/api/v1/kubeconfig
     featureGates:
         UserClusterMLA:
-            enabled: true
+            enabled: false
 sops:
     kms: []
     gcp_kms: []
