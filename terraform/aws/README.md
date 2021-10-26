@@ -13,6 +13,7 @@ use the configs and how to provision a Kubernetes cluster using KubeOne.
 |------|---------|
 | terraform | >= 0.12.10 |
 
+
 ## Providers
 
 | Name | Version |
