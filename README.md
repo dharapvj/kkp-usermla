@@ -15,7 +15,6 @@ on top of aws with integration of Flux v2 for GitOps delivery and SOPS for secre
 
 ## Preparation
 ### Create GitHub repository
-
 Create new repository on GitHub [manually](https://docs.github.com/en/get-started/quickstart/create-a-repo)
 or using [GitHub CLI](https://cli.github.com/manual/gh_repo_create).
 
