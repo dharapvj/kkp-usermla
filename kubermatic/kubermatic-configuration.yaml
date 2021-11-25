@@ -22,7 +22,7 @@ spec:
         issuerRedirectURL: https://usermla.lab.kubermatic.io/api/v1/kubeconfig
     featureGates:
         UserClusterMLA:
-            enabled: false
+            enabled: true
 sops:
     kms: []
     gcp_kms: []
@@ -38,8 +38,8 @@ sops:
             dkpGVG40bFRFTzNVQUNLbzQrT2xJdmMKONW44IjRZv1F8ydFXCzsSWvEaIuVfiYy
             nsIaluAZHHLcLrIE+DvAMw8ap9n9YyntLcsaQrALgJIOcqRf/LVfgg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-11-25T06:28:10Z"
-    mac: ENC[AES256_GCM,data:aeBM8ovuxrtkFCGoRYneAJvQyZEn3oLNC82md395xV4iykkkcGHuAy+pI6WfSlDezP7kBS+KAk72doVAmfrWC1c7biZUsWRFQFU0b+TZTxQmxeHaAI4TgbagvEqeL/zatSBuaWchoSsSZ28VWsu0hxg/vgWNK7xLmenrjXdLaGo=,iv:TfhdvRLlJwNhi5VGQ/9Zc8Nm4SBCh7R2+MPkYEUVrzY=,tag:HFXP1k5F35Ai6HpdMwqZ1A==,type:str]
+    lastmodified: "2021-11-25T07:01:11Z"
+    mac: ENC[AES256_GCM,data:0qTHaaYfGJeUeds63SCrpO+7MBWY5ZWLg+SvRRijyGmsLUzWeGjqQ330GPS7tK/0F4jAJJDR5Kbzhb2vhMFNl4xvPLn1DuWI6REO6M4bIaEcXvQSvns3wSmAwY3Ip4WE9XqeMGkFjfYcJu4QY/648FSpCnAVq2g5zy43TbwrzsU=,iv:MXHkcamLNB9JJQ0mLajPfYr3V51lDEMd12OjTKujvE0=,tag:9nAU0Q4UWU+TjGN3oQHeRw==,type:str]
     pgp: []
     encrypted_regex: (issuerClientSecret|issuerCookieKey|serviceAccountKey)
     version: 3.7.1
