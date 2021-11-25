@@ -3,5 +3,5 @@ aws_region          = "eu-central-1"
 worker_type         = "t3a.large"
 ssh_public_key_file = "~/.ssh/k8s_rsa.pub"
 # initial count of workers in each region
-initial_machinedeployment_replicas = 1
+initial_machinedeployment_replicas = 3
 # More variables can be overridden here, see variables.tf
